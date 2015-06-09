@@ -10,11 +10,10 @@ package utfpr.ct.dainf.if62c.avaliacao;
  * @author a1656899
  */
 public class PontoYZ extends Ponto2D{
-    public PontoYZ(){
-        
+    public PontoYZ(double y, double z){
+        super(0,y,z);
     }
-
-    private PontoYZ(double y, double z) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PontoYZ(){
+        super();
     }
 }

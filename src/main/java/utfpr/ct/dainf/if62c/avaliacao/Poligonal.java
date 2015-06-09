@@ -10,18 +10,40 @@ package utfpr.ct.dainf.if62c.avaliacao;
  * @author a1656899
  */
 public class Poligonal {
-    private int vert;
-    private int vertices[];
+    private int vertic = 0;
+    private Ponto2D vertices[];
     
     public Poligonal(){
         
     }
     
-    public Poligonal(int vertices){
+    public Poligonal(int v){
+        if(v <= 2){
+            throw new RuntimeException("Poligonal deve ter ao menos 2 vértices");
+        }
+        Ponto2D[] vertices = new Ponto2D[v];
+        vertic = v;
 
     }
     
     public int getN(){
-        return vert;
+        return vertic;
+    }
+    
+    public Ponto2D get(int indice){
+        if(indice <0 || indice >= getN()){
+            return null;
+        }
+        else
+            return vertices[indice];
+    }
+    
+    public double getComprimento(){
+        double comprimento = 0;
+        
+        for(int i=0; i< vertic -1; i++){
+            comprimento += vertices[i].dist(vertices[i+1]);
+        }
+        return comprimento;
     }
 }

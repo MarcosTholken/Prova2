@@ -59,6 +59,9 @@ public class Ponto {
     }
     
     public Ponto(){
+        x=0;
+        y=0;
+        z=0;
     }
     
     public Ponto(double x, double y, double z){
@@ -71,7 +74,19 @@ public class Ponto {
      public String toString() {        
         return String.format("%f, %f, %f", x, y, z);
     }
-     
+    
+     public boolean equals(Object obj){
+         if(obj.getClass() != getClass() || obj == null){
+             return false;
+         }
+         else{
+             Ponto p = (Ponto) obj;
+             if(x == p.x && y == p.y && z== p.z){
+                 return true;
+             }
+             return false;
+         }
+     }
     
      
      public double dist(Ponto p){
